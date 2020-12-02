@@ -48,6 +48,18 @@ function recogerDatos() {
         if (this.status == 200) {
             let parrafo = document.getElementById("parrafo1");
             parrafo.innerHTML = this.responseText;
+
+            // convertir a JSON contenido
+            let convertir = JSON.parse(this.responseText);
+            console.log("convierte a JSON");
+
+            // Vuelta  DOM, recuperar objetos para meterlos en tabla
+            let tabla = document.getElementById("tabla");
+            let tr = document.createElement("tr");
+            let nombre = document.createElement("td");
+            let apellidos = document.createElement("td");
+            let dni = document.createElement("td");
+            let fecha = document.createElement("td");
         } else {
             muestraError(this.status);
         }
